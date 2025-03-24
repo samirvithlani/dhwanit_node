@@ -1,0 +1,51 @@
+2 type tech:
+
+server side tech:
+    server : c -->cono... java --> javaconsole
+client side tech:
+    js : client: browser:
+
+nodejs:server -->
+
+
+c: 
+
+create folder named 
+projects:
+   mern:
+     backend:
+        open cmd
+            npm init
+                   
+
+
+install express pacjage and create http server using express module       
+
+web application:
+request -- response
+
+client request --> process  --> response..
+
+
+dev deependcy
+npm install nodemon -g
+
+API -> application prog interface...
+
+diff diff
+backend tech -> frontend tech
+java,node,python   <--->    android,react,angular
+
+api -> url --> type 
+
+backend developer   
+api produce
+
+GET   --> when frontend developer need to display data to breowser from backend
+POST  ---> when frontend developer submit data and backend develoers has to save that data to db --<
+PUT   -> update
+DELETE --> delete
+PATCH --> update | partial update
+
+API data  ---> JSON
+                
