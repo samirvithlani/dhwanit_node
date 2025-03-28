@@ -21,6 +21,8 @@ projects:
 
 install express pacjage and create http server using express module       
 
+npm install express
+
 web application:
 request -- response
 
