@@ -50,4 +50,10 @@ DELETE --> delete
 PATCH --> update | partial update
 
 API data  ---> JSON
+
+
+APP.js --> routes --> controller function -->[api]--> datbase -->models
                 
+
+npm install mongoose:
+mongoose is orm for mongodb: object relational mapping...                
