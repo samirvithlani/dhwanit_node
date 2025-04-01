@@ -13,6 +13,23 @@ const getUsers = async (req, res) => {
   });
 };
 
+const addUser = async (req, res) => {
+  //frontend data -->
+  //request --> data -->requestion object
+  //req.body , req.params,req.query,req.headers
+  //req.body --> object
+  //parasm --> url
+  //query ->?
+  //header authent
+  //console.log(req.body)
+  const savedUser = await userModel.create(req.body);
+  res.json({
+    message: "user saved successfully",
+    data: savedUser,
+  });
+};
+
 module.exports = {
   getUsers,
+  addUser,
 };

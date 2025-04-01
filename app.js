@@ -3,6 +3,8 @@ const express = require("express"); //express require..
 const mongoose = require("mongoose"); //mongoose require..
 //create an object of express application
 const app = express();
+app.use(express.json()) //json datatype
+
 
 //http:localhost:3000/users
 const userRoutes = require("./routes/UserRoutes");
