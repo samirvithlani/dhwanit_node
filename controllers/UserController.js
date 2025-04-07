@@ -49,7 +49,11 @@ const getUserByGender = async (req, res) => {
 
   const gender = req.query.gender;
   const age = req.query.age;
-  const foundUsers = await userModel.find({gender:gender,age:{$gt:age}})
+  const page = req.query.page;
+  const sort = req.query.sort;
+  
+  //const foundUsers = await userModel.find({gender:gender,age:{$gt:age}}).sort({age:-1}).limit(page)
+  const foundUsers = await userModel.find({gender:gender,age:{$gt:age}}).sort({age:sort == "asc"?1:-1}).limit(page)
   if(foundUsers.length>0){
     res.json({
       message: "users found",
