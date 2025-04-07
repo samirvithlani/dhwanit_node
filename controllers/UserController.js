@@ -45,8 +45,28 @@ const deleteUser = async (req, res) => {
   }
 };
 
+const getUserByGender = async (req, res) => {
+
+  const gender = req.query.gender;
+  const age = req.query.age;
+  const foundUsers = await userModel.find({gender:gender,age:{$gt:age}})
+  if(foundUsers.length>0){
+    res.json({
+      message: "users found",
+      data: foundUsers,
+    });
+  }
+  else{
+    res.json({
+      message: "user not found",
+    });
+  }
+
+}
+
 module.exports = {
   getUsers,
   addUser,
   deleteUser,
+  getUserByGender
 };
