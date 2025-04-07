@@ -28,8 +28,25 @@ const addUser = async (req, res) => {
     data: savedUser,
   });
 };
+const deleteUser = async (req, res) => {
+  //db.users.remove({_id:"id"]})
+  const id = req.params.id;
+  //mongoose
+  const deletedUser = await userModel.findByIdAndDelete(id);
+  if (deletedUser != null) {
+    res.json({
+      message: "user deleted successfully",
+      data: deletedUser,
+    });
+  } else {
+    res.json({
+      message: "user not found",
+    });
+  }
+};
 
 module.exports = {
   getUsers,
   addUser,
+  deleteUser,
 };
