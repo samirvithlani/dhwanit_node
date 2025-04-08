@@ -68,9 +68,54 @@ const getUserByGender = async (req, res) => {
 
 }
 
+const updateUserById = async(req,res)=>{
+
+  
+  const updatedUser  = await userModel.findByIdAndUpdate(req.params.id,req.body,{new:true})
+  if(updatedUser){
+    res.json({
+      message:"user update successfully..",
+      data:updatedUser
+    })
+  }
+  else{
+    res.json({
+      message:"user not updated"
+    })
+  }
+  
+
+
+
+}
+
+const addHobbieToexistinguser = async(req,res)=>{
+
+
+    //id --> req.params
+    //hobby --->req.body
+
+    const updateUser = await userModel.findByIdAndUpdate(req.params.id,{$push:{hobbies:req.body.hobby}},{new:true})
+    if(updateUser){
+      res.json({
+        message:"user update successfully..",
+        data:updateUser
+      })
+    }
+    else{
+      res.json({
+        message:"user not updated"
+      })
+    }
+
+
+}
+
 module.exports = {
   getUsers,
   addUser,
   deleteUser,
-  getUserByGender
+  getUserByGender,
+  updateUserById,
+  addHobbieToexistinguser
 };

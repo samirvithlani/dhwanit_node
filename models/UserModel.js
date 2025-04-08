@@ -15,7 +15,12 @@ const userModel = new Schema({
     },
     gender:{
         type:String
-    }
+    },
+    hobbies:[
+        {
+            type:String
+        }
+    ]
 })
 module.exports = mongoose.model("users", userModel);
 
