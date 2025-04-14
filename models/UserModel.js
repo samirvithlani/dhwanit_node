@@ -20,7 +20,11 @@ const userModel = new Schema({
         {
             type:String
         }
-    ]
+    ],
+    department:{
+        type:Schema.Types.ObjectId,
+        ref:"department"
+    }
 })
 module.exports = mongoose.model("users", userModel);
 

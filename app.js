@@ -10,6 +10,8 @@ app.use(express.json()) //json datatype
 const userRoutes = require("./routes/UserRoutes");
 app.use(userRoutes)
 
+const departmentRoutes = require("./routes/DepartmentRoutes")
+app.use("/dept",departmentRoutes)
 
 
 mongoose.connect("mongodb://127.0.0.1:27017/dhwanitapp").then(()=>{

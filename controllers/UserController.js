@@ -5,7 +5,7 @@ const getUsers = async (req, res) => {
   //datbase record fetch
   //db.users.find()
 
-  const users = await userModel.find();
+  const users = await userModel.find().populate("department")
 
   res.json({
     message: "users api called...",
