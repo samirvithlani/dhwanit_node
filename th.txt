@@ -57,3 +57,6 @@ APP.js --> routes --> controller function -->[api]--> datbase -->models
 
 npm install mongoose:
 mongoose is orm for mongodb: object relational mapping...                
+
+
+middleware is function which will execute before controller we can change flow of controller..
