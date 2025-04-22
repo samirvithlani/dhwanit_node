@@ -1,5 +1,6 @@
 //api function...
 const userModel = require("../models/UserModel");
+const sendMail = require("../utils/MailUtil")
 
 const getUsers = async (req, res) => {
   //datbase record fetch
@@ -23,6 +24,8 @@ const addUser = async (req, res) => {
   //header authent
   //console.log(req.body)
   const savedUser = await userModel.create(req.body);
+  //mail...
+  sendMail(savedUser.email,"Welcome Mail","Welcome to portal")
   res.json({
     message: "user saved successfully",
     data: savedUser,
