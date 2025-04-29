@@ -13,6 +13,9 @@ app.use(userRoutes)
 const departmentRoutes = require("./routes/DepartmentRoutes")
 app.use("/dept",departmentRoutes)
 
+const uploadRoutes = require("./routes/UploadRoutes")
+app.use("/upload",uploadRoutes)
+
 
 mongoose.connect("mongodb://127.0.0.1:27017/dhwanitapp").then(()=>{
   console.log("connected to db");
