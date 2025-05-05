@@ -1,5 +1,6 @@
 const multer = require("multer")
 const path = require("path")
+const cloudinaryUpload = require("../utils/cloudinary")
 
 ///storage d
 const storage = multer.diskStorage({
@@ -16,7 +17,7 @@ const upload = multer({
 
 const uploadFile=async(req,res)=>{
 
-    upload(req,res,(err)=>{
+    upload(req,res,async(err)=>{
         if(err){
             res.json({
                 message:"Error in file upload",
@@ -24,9 +25,13 @@ const uploadFile=async(req,res)=>{
             })
         }
         else{
+            //file upl;oad folder..
+            const cloundinaryResponse = await cloudinaryUpload.uploadImage(req.file.path)
+            console.log(cloundinaryResponse)
             res.json({
                 message:"File uploaded successfully",
                 file:req.file,
+                cloundinaryResponse
             })
         }
     })
