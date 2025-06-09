@@ -2,6 +2,7 @@
 const userModel = require("../models/UserModel");
 const sendMail = require("../utils/MailUtil");
 const bcrypt = require("bcrypt");
+const tokenUtil = require("../utils/tokenUtil")
 
 const getUsers = async (req, res) => {
   //datbase record fetch
@@ -126,9 +127,13 @@ const userLogin = async (req, res) => {
     //plian password enc pass compare
     const isMatch = bcrypt.compareSync(password, userFromEmail.password); //true
     if (isMatch) {
+        //token...
+        const token = tokenUtil.generateToken(userFromEmail.toObject())
+
       res.json({
         message: "login success",
-        data: userFromEmail,
+        //data: userFromEmail,
+          token:token
       });
     } else {
       res.status(401).json({
