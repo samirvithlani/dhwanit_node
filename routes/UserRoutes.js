@@ -16,4 +16,5 @@ router.delete("/user/:id",userController.deleteUser)
 router.get("/finduserbygender",userController.getUserByGender)
 router.put("/updateuser/:id",userController.updateUserById)
 router.put("/addhobby/:id",userController.addHobbieToexistinguser)
+router.post("/loginuser",userController.userLogin)
 module.exports = router;
