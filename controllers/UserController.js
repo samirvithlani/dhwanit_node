@@ -1,6 +1,7 @@
 //api function...
 const userModel = require("../models/UserModel");
 const sendMail = require("../utils/MailUtil")
+const bcrypt = require("bcrypt")
 
 const getUsers = async (req, res) => {
   //datbase record fetch
@@ -23,6 +24,12 @@ const addUser = async (req, res) => {
   //query ->?
   //header authent
   //console.log(req.body)
+
+  const salt = bcrypt.genSaltSync(12)
+  const hashedPassword = bcrypt.hashSync(req.body.password,salt) //encrypted
+
+  req.body.password = hashedPassword;
+  
   const savedUser = await userModel.create(req.body);
   //mail...
   sendMail(savedUser.email,"Welcome Mail","Welcome to portal")

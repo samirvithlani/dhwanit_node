@@ -6,7 +6,9 @@ const userValidationSchema = zod.object({
     age:zod.number(),
     gender:zod.string(),
     hobbies:zod.array(zod.string()),
-    department:zod.string()
+    department:zod.string(),
+    password:zod.string()
+
     
 
 })
