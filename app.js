@@ -4,6 +4,25 @@ const mongoose = require("mongoose"); //mongoose require..
 //create an object of express application
 const app = express();
 app.use(express.json()) //json datatype
+const  Redis = require("ioredis")
+const {Queue} = require("bullmq")
+
+//redis connection
+const redisConnection = new Redis({
+  host:"127.0.0.1",
+  port:6379
+})
+
+//queue
+const myQueue = new Queue("taskQueue",{connection:redisConnection})
+
+app.post("/add-job",async(req,res)=>{
+  const {name} = req.body;
+  await myQueue.add("task",{name},{delay:0})
+  res.json({
+    message:`job set for ${name}`
+  })
+})
 
 
 //http:localhost:3000/users

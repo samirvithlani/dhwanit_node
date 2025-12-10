@@ -60,3 +60,20 @@ mongoose is orm for mongodb: object relational mapping...
 
 
 middleware is function which will execute before controller we can change flow of controller..
+
+
+how to manage background huge task
+
+parent -->demand ->
+request -->email | multipule|upload -->
+--------------------------
+Dhiraj -->AI ->ml --> ok
+pallvi mam -->
+
+broker  + queue
+redis + task put
+
+redis only work in linux
+wsl server : linux
+
+npm i ioredis bullmq
